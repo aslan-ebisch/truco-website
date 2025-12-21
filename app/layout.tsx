@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pintura Co. | Premium Exterior Painting in Northwest Arkansas",
-  description: "Professional exterior painting services in Fayetteville, Bentonville, Rogers, and Northwest Arkansas. Quality craftsmanship. Lasting results.",
-  keywords: ["painting", "exterior painting", "house painting", "Northwest Arkansas", "Fayetteville", "Bentonville", "Rogers"],
+  title: "TruCo Painting | Professional Painting Services",
+  description: "TruCo Painting delivers quality interior and exterior painting services. Expert craftsmanship, premium materials, and lasting results you can trust.",
+  keywords: ["painting", "house painting", "interior painting", "exterior painting", "painting contractor", "TruCo Painting"],
 };
 
 export default function RootLayout({
