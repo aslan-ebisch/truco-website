@@ -23,6 +23,7 @@ export default function Home() {
 // Navigation
 function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,6 +32,8 @@ function Navigation() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const navItems = ['About', 'Services', 'Process', 'Gallery', 'Testimonials', 'Contact'];
 
   return (
     <motion.nav
@@ -52,8 +55,9 @@ function Navigation() {
           />
         </motion.a>
 
+        {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
-          {['About', 'Services', 'Process', 'Gallery', 'Testimonials', 'Contact'].map((item) => (
+          {navItems.map((item) => (
             <motion.a
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -65,17 +69,59 @@ function Navigation() {
           ))}
         </div>
 
+        {/* Desktop Schedule Button */}
         <motion.a
           href="https://form.jotform.com/253238851265057"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-[#004aad] text-white px-6 py-2 text-sm font-medium hover:bg-[#003580] transition-colors"
+          className="hidden md:block bg-[#004aad] text-white px-6 py-2 text-sm font-medium hover:bg-[#003580] transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           Schedule Estimate
         </motion.a>
+
+        {/* Mobile Hamburger Button */}
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden flex flex-col justify-center items-center w-10 h-10"
+        >
+          <span className={`block w-6 h-0.5 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
+          <span className={`block w-6 h-0.5 bg-gray-800 my-1 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
+          <span className={`block w-6 h-0.5 bg-gray-800 transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          className="md:hidden bg-white border-t border-gray-100 shadow-lg"
+        >
+          <div className="px-6 py-4 space-y-4">
+            {navItems.map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block text-lg text-gray-700 hover:text-[#004aad] transition-colors"
+              >
+                {item}
+              </a>
+            ))}
+            <a
+              href="https://form.jotform.com/253238851265057"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-[#004aad] text-white text-center px-6 py-3 font-medium hover:bg-[#003580] transition-colors"
+            >
+              Schedule Estimate
+            </a>
+          </div>
+        </motion.div>
+      )}
     </motion.nav>
   );
 }
