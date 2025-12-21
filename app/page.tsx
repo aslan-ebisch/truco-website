@@ -441,13 +441,13 @@ function Process() {
                 i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
               }`}
             >
-              <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+              <div className={`flex-1 text-center ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
                 <div className="text-[#004aad] text-sm font-medium mb-2">{step.step}</div>
                 <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
                 <p className="text-gray-500">{step.description}</p>
               </div>
               <div className="hidden md:flex w-4 h-4 bg-[#004aad] rounded-full relative z-10" />
-              <div className="flex-1" />
+              <div className="hidden md:block flex-1" />
             </motion.div>
           ))}
         </div>
