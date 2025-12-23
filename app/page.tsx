@@ -593,7 +593,7 @@ function Testimonials() {
 
   const testimonials = [
     {
-      quote: "They painted our entire downstairs in two days. Looks great and the guys were super respectful of our space.",
+      quote: "They painted our entire bathroom in just a few hours. Looks great and the guys were super respectful of our space.",
       name: "Karen P.",
     },
     {
