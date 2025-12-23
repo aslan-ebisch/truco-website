@@ -466,6 +466,7 @@ function Gallery() {
     '/pic2.PNG',
     '/pic3.jpg',
     '/pic4.PNG',
+    '/pic5.png',
     '/IMG_1260.JPEG',
     '/IMG_1273.JPG',
     '/IMG_1355.JPG',
@@ -502,7 +503,7 @@ function Gallery() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
             {projects.map((project, i) => (
               <motion.div
                 key={project}
