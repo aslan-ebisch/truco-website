@@ -284,7 +284,7 @@ function About() {
           >
             <div className="aspect-[4/5] bg-gray-100 relative overflow-hidden">
               <img
-                src="/founder.jpg"
+                src="/brayden-tricep.png"
                 alt="TruCo Painting Team"
                 className="absolute inset-0 w-full h-full object-cover"
               />
